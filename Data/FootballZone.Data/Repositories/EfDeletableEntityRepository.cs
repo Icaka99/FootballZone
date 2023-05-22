@@ -26,17 +26,21 @@ namespace FootballZone.Data.Repositories
             return this.AllWithDeleted().FirstOrDefaultAsync(getByIdPredicate);
         }
 
-        public void HardDelete(TEntity entity) => base.Delete(entity);
+        public void HardDelete(string id) => base.Delete(id);
 
-        public void Undelete(TEntity entity)
+        public void Undelete(string id)
         {
+            var entity = this.DbSet.Find(id);
+
             entity.IsDeleted = false;
             entity.DeletedOn = null;
             this.Update(entity);
         }
 
-        public override void Delete(TEntity entity)
+        public override void Delete(string id)
         {
+            var entity = this.DbSet.Find(id);
+
             entity.IsDeleted = true;
             entity.DeletedOn = DateTime.UtcNow;
             this.Update(entity);

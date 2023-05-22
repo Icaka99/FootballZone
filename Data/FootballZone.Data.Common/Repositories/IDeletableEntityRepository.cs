@@ -11,8 +11,8 @@ namespace FootballZone.Data.Common.Repositories
 
         Task<TEntity> GetByIdWithDeletedAsync(params object[] id);
 
-        void HardDelete(TEntity entity);
+        void HardDelete(string id);
 
-        void Undelete(TEntity entity);
+        void Undelete(string id);
     }
 }

@@ -4,7 +4,7 @@ using FootballZone.Data.Common.Models;
 
 namespace FootballZone.Data.Models
 {
-    public class Article : BaseDeletableModel<int>
+    public class Article : BaseDeletableModel<string>
     {
         public Article()
         {

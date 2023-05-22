@@ -22,7 +22,7 @@ namespace FootballZone.Data.Repositories
 
         public virtual Task AddAsync(TEntity entity) => this.DbSet.AddAsync(entity).AsTask();
 
-        public virtual void Update(TEntity entity)
+        public virtual TEntity Update(TEntity entity)
         {
             var entry = this.Context.Entry(entity);
             if (entry.State == EntityState.Detached)
@@ -31,9 +31,16 @@ namespace FootballZone.Data.Repositories
             }
 
             entry.State = EntityState.Modified;
+
+            return entity;
         }
 
-        public virtual void Delete(TEntity entity) => this.DbSet.Remove(entity);
+        public virtual void Delete(string id)
+        {
+            var entityToDelete = this.DbSet.Find(id);
+
+            this.DbSet.Remove(entityToDelete);
+        }
 
         public Task<int> SaveChangesAsync() => this.Context.SaveChangesAsync();
 

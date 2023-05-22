@@ -9,9 +9,9 @@
 
         Task AddAsync(TEntity entity);
 
-        void Update(TEntity entity);
+        TEntity Update(TEntity entity);
 
-        void Delete(TEntity entity);
+        void Delete(string id);
 
         Task<int> SaveChangesAsync();
     }

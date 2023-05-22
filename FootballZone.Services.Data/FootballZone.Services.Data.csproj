@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Data\FootballZone.Data.Common\FootballZone.Data.Common.csproj" />
+    <ProjectReference Include="..\Data\FootballZone.Data.Models\FootballZone.Data.Models.csproj" />
+  </ItemGroup>
+
+</Project>
